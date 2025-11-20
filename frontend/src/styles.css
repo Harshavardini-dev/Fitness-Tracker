@@ -1,0 +1,414 @@
+/* ====================== PREMIUM DARK THEME (MATTE) ====================== */
+
+/* Base colors per your spec */
+:root {
+  --bg-matte: #121212;       /* main background */
+  --card-bg: #23272a;        /* widget/card background */
+  --panel-contrast: rgba(255,255,255,0.02);
+  --text-main: #ffffff;
+  --muted: #9aa3ad;
+
+  /* stat accent colors */
+  --c-steps: #19b86b;
+  --c-calories: #ff4d4f;
+  --c-active: #ffcf56;
+  --c-sleep: #5b8cff;
+  --c-hr: #17d4ff;
+  --c-distance: #4177f6;
+}
+
+/* overall background */
+.dashboard-root.premium-dark { background: var(--bg-matte); color: var(--text-main); min-height: 100vh; }
+.dashboard-wrapper { max-width: 1200px; margin: 20px auto; padding: 22px; }
+
+/* topbar */
+.dash-topbar { height:64px; display:flex; align-items:center; justify-content:space-between; padding: 0 22px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05)); border-radius: 10px; margin-bottom: 18px; }
+.dash-brand { font-weight: 900; font-size: 18px; letter-spacing: 0.3px; }
+
+/* header title */
+.dashboard-header h1 { font-size: 36px; text-align: center; margin-bottom: 18px; font-weight: 900; color: var(--text-main); text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+
+/* cards */
+.card { background: var(--card-bg); border-radius: 14px; padding: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.02); color: var(--text-main); }
+
+/* ================= HERO STATS ================= */
+.stats-hero { margin: 18px 0 28px; }
+.stats-hero-inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+
+.stat-hero-card { padding: 20px; border-radius: 12px; display:flex; flex-direction:column; gap:12px; background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.06)); transition: transform .16s ease, box-shadow .16s ease; }
+.stat-hero-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.7); }
+
+.stat-hero-top { display:flex; align-items:center; gap:12px; }
+.stat-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:800; }
+.stat-hero-title { font-size:14px; color: var(--muted); font-weight:800; }
+
+.stat-hero-value { display:flex; align-items:baseline; gap:8px; }
+.stat-number { font-size:32px; font-weight:900; color: var(--text-main); }
+.stat-unit { font-size:13px; color:var(--muted); font-weight:700; }
+
+/* icon background subtle */
+.stat-icon svg { width:20px; height:20px; }
+
+/* ================= LAYOUT ROWS ================= */
+.first-row { display: grid; grid-template-columns: 1.6fr 0.9fr; gap: 18px; align-items: start; margin-bottom: 18px; }
+.add-activity-card { min-height: 360px; }
+
+/* right stats column (stacked cards) */
+.right-stats-column { display: grid; gap: 14px; padding: 18px; border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.04)); }
+
+/* stat-box styles */
+.stat-box { background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(255,255,255,0.01)); border-radius:10px; padding: 14px; display:flex; align-items:center; justify-content:space-between; }
+.stat-box-row { width:100%; display:flex; align-items:center; justify-content:space-between; }
+.stat-box-left { display:flex; align-items:center; gap:10px; color: var(--muted); font-weight:700; }
+.stat-box-right { text-align:right; }
+.big-num { font-size:28px; font-weight:900; }
+
+/* ================= EQUAL HEIGHT ROWS ================= */
+.row-equal { display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:stretch; margin-bottom: 18px; }
+.big-chart { min-height: 360px; display:flex; flex-direction:column; padding: 16px; }
+
+/* recent workouts */
+.neon-recent-title { font-size:18px; font-weight:900; color: var(--text-main); margin-bottom:12px; }
+.neon-recent-list { display:flex; flex-direction:column; gap:12px; max-height: 420px; overflow:auto; padding-right:6px; }
+.neon-recent-item { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.05)); border-radius:12px; padding: 10px 12px; display:flex; justify-content:space-between; align-items:center; }
+.neon-left { display:flex; gap:12px; align-items:center; }
+.neon-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.02); }
+.neon-type { font-weight:800; }
+.neon-meta { font-size:12px; color:var(--muted); }
+
+/* right side of recent item */
+.neon-right { display:flex; align-items:center; gap:10px; }
+.neon-cal { font-weight:800; color:var(--text-main); }
+
+/* trash icon button */
+.delete-btn { background: rgba(255,255,255,0.04); border-radius:8px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; }
+.delete-btn:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+/* ================= CHARTS ROW ================= */
+.two-charts.equal-row { display:grid; grid-template-columns: 1fr 400px; gap:18px; align-items:stretch; }
+.small-chart { padding:16px; display:flex; flex-direction:column; justify-content: center; align-items: center; }
+
+/* donut chart sizing */
+.small-chart .chart-container { width:100%; height: 320px; }
+
+/* ================= TABLE ================= */
+.table-card .activity-table { width:100%; border-collapse:collapse; margin-top:12px; }
+.activity-table thead th { text-align:left; padding:14px; font-weight:800; color:var(--text-main); }
+.activity-table tbody td { padding:12px 14px; border-top: 1px solid rgba(255,255,255,0.02); color:var(--muted); }
+
+/* alternating rows */
+.activity-table tbody tr:nth-child(odd) { background: linear-gradient(180deg, rgba(255,255,255,0.005), rgba(0,0,0,0.01)); }
+
+/* ================= AI COACH FOOTER ================= */
+.ai-coach-bar { margin-top: 24px; padding: 16px 18px; border-radius: 12px; background: linear-gradient(90deg, rgba(65,119,246,0.12), rgba(25,184,107,0.10)); display:flex; justify-content:space-between; align-items:center; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+.ai-text { font-weight:700; color: var(--text-main); }
+.tip-btn { background: var(--c-steps); color: #061017; padding:10px 14px; border-radius:10px; border:none; font-weight:800; cursor:pointer; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1080px) {
+  .stats-hero-inner { grid-template-columns: repeat(2,1fr); }
+  .first-row { grid-template-columns: 1fr; }
+  .row-equal { grid-template-columns: 1fr; }
+  .two-charts.equal-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .stats-hero-inner { grid-template-columns: 1fr; gap:12px; }
+  .stat-number { font-size: 24px; }
+  .big-num { font-size:20px; }
+}
+/* ---------- FIX: Add Activity Form Styling ---------- */
+
+/* -------- AddActivity improved input-with-icon styles -------- */
+
+.add-activity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Each labeled input row (icon + field) */
+.input-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* icon container inside the input */
+.input-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.02);
+}
+
+/* Inputs and select */
+.add-activity-form input,
+.add-activity-form select {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.01);
+}
+
+/* placeholder */
+.add-activity-form input::placeholder,
+.add-activity-form select::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+/* select caret alignment */
+.add-activity-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.25) 50%), linear-gradient(135deg, rgba(255,255,255,0.25) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+/* focus */
+.add-activity-form input:focus,
+.add-activity-form select:focus {
+  border-color: rgba(25,184,107,0.95);
+  box-shadow: 0 6px 18px rgba(25,184,107,0.12), 0 0 0 3px rgba(25,184,107,0.06);
+}
+
+/* Add button */
+.add-activity-form .add-btn {
+  margin-top: 6px;
+  background: linear-gradient(90deg, #19b86b, #3ad08a);
+  color: #061017;
+  border: none;
+  padding: 14px;
+  font-weight: 900;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(25,184,107,0.14);
+}
+
+.add-activity-form .add-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Small screens: icons smaller and stacked */
+@media (max-width: 680px) {
+  .input-icon { width: 36px; height: 36px; margin-right: 10px; }
+  .add-activity-form input, .add-activity-form select { padding: 12px; }
+}
+/* --- Top Bar --- */
+.dash-topbar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Center Title */
+.main-title {
+  font-size: 34px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #ff4747;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(255,50,50,0.3);
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #ff2f2f;
+  transform: translateY(-2px);
+}
+
+/* logout icon */
+.logout-icon {
+  font-size: 18px;
+}
+/* Hover effect for hero stat cards */
+.stat-hero-card {
+  background: #1a1c1f;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-hero-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 32px rgba(0,255,163,0.25);
+  background: #26292d;
+}
+/* Apply hover effect to all dashboard blocks */
+.card,
+.stat-hero-card,
+.small-chart,
+.chart-card,
+.table-card,
+.sidebar-col > div,
+.add-activity-card,
+.neon-recent-card {
+  transition: all 0.25s ease;
+}
+
+/* Hover: only shadow + slight lift */
+.card:hover,
+.stat-hero-card:hover,
+.small-chart:hover,
+.chart-card:hover,
+.table-card:hover,
+.sidebar-col > div:hover,
+.add-activity-card:hover,
+.neon-recent-card:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+}
+/* ============================================================
+   PREMIUM FITNESS LOGIN PAGE
+   ============================================================ */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0c0d;
+}
+
+.login-card {
+  background: #121416;
+  width: 360px;
+  padding: 32px 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.login-sub {
+  margin-top: 6px;
+  color: #9aa3ad;
+  font-size: 15px;
+  margin-bottom: 26px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-input-box {
+  position: relative;
+}
+
+.login-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #19b86b;
+}
+
+.login-input-box input {
+  width: 90%;
+  padding: 12px 14px 12px 40px;
+  background: #1a1c1e;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 15px;
+  border-radius: 12px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.login-input-box input:focus {
+  border-color: #19b86b;
+  outline: none;
+  box-shadow: 0 0 8px rgba(25,184,107,0.4);
+}
+
+.login-btn {
+  background: #19b86b;
+  color: #041014;
+  border: none;
+  padding: 12px;
+  margin-top: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(25,184,107,0.25);
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  background: #17a761;
+  transform: translateY(-3px);
+}
+.login-switch {
+  margin-top: 16px;
+  color: #9aa3ad;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.login-switch span {
+  color: #19b86b;
+  font-weight: 700;
+}
+.connect-fitbit-btn {
+  padding: 10px 20px;
+  background: #4cc2ff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+}
+
+.connect-fitbit-btn:hover {
+  background: #75d8ff;
+}
